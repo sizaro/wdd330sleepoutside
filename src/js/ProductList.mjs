@@ -16,7 +16,13 @@ export default class ProductListing {
       this.listElement = listElement;
     }
 
+    renderList() {
+        
+    } 
+
     async init() {
       const list = await this.dataSource.getData();
+      const products = list.map((item) => productCardTemplate(item)).join("");
+      this.listElement.innerHtml = products
     }
   }
