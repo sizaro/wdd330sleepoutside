@@ -18,8 +18,12 @@ export default class ProductListing {
       this.listElement = listElement;
     }
 
+    async fourItems(list) {
+        return list.slice(0,4)
+    }
     async init() {
       const list = await this.dataSource.getData();
-      renderListWithTemplate(productCardTemplate,this.listElement,list,)
+       const fourProduct = this.fourItems(list)
+      renderListWithTemplate(productCardTemplate,this.listElement,fourProduct,)
     }
   }
