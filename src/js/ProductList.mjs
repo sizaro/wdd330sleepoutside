@@ -1,3 +1,5 @@
+import { renderListWithTemplate } from "./utils.mjs";
+
 function productCardTemplate(product) {
     return `<li class="product-card">
       <a href="product_pages/index.html?product=">
@@ -16,13 +18,8 @@ export default class ProductListing {
       this.listElement = listElement;
     }
 
-    renderList() {
-        
-    } 
-
     async init() {
       const list = await this.dataSource.getData();
-      const products = list.map((item) => productCardTemplate(item)).join("");
-      this.listElement.innerHtml = products
+      renderListWithTemplate(productCardTemplate,this.listElement,list,)
     }
   }

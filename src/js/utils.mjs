@@ -32,6 +32,10 @@ export function getParams(param){
 }
 
 export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false) {
-  const htmlString = list.map((item) => templateFn(item)).join("")
-  parentElement.insertAdjacentHtml(position, htmlString)
+ if (clear) {
+  parentElement.innerHtml = "";
+ }
+
+ const htmlString = list.map((item) => templateFn(item)).join("")
+ parentElement.insertAdjacentHTML(position, htmlString)
 }
