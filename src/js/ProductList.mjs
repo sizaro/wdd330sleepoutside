@@ -23,7 +23,7 @@ export default class ProductListing {
     }
     async init() {
       const list = await this.dataSource.getData();
-       const fourProduct = this.fourItems(list)
+       const fourProduct = await this.fourItems(list)
       renderListWithTemplate(productCardTemplate,this.listElement,fourProduct,)
     }
   }
